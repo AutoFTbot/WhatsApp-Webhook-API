@@ -1,0 +1,5 @@
+node_modules/
+.env
+AutoFtBot69/
+*.log
+.DS_Store

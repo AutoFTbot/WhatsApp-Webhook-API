@@ -1,0 +1,164 @@
+{
+  "info": {
+    "name": "WhatsApp Webhook API AutoFtBot69",
+    "description": "Collection untuk WhatsApp Webhook API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "api_key",
+      "value": "your-api-key-here",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        },
+        "description": "Health check endpoint (tidak perlu API key)"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Status",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "{{api_key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/status",
+          "host": ["{{base_url}}"],
+          "path": ["api", "status"]
+        },
+        "description": "Mendapatkan status koneksi WhatsApp"
+      },
+      "response": []
+    },
+    {
+      "name": "Get QR Code",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "{{api_key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/qr",
+          "host": ["{{base_url}}"],
+          "path": ["api", "qr"]
+        },
+        "description": "Mendapatkan QR code untuk koneksi WhatsApp"
+      },
+      "response": []
+    },
+    {
+      "name": "Connect WhatsApp",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "api-key",
+            "value": "{{api_key}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"phoneNumber\": \"6281234567890\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/connect",
+          "host": ["{{base_url}}"],
+          "path": ["api", "connect"]
+        },
+        "description": "Koneksi WhatsApp dengan nomor telepon. Jika null phoneNumber, akan menggunakan session yang sudah ada."
+      },
+      "response": []
+    },
+    {
+      "name": "Disconnect WhatsApp",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "api-key",
+            "value": "{{api_key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/disconnect",
+          "host": ["{{base_url}}"],
+          "path": ["api", "disconnect"]
+        },
+        "description": "Memutuskan koneksi WhatsApp"
+      },
+      "response": []
+    },
+    {
+      "name": "Send Message",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "api-key",
+            "value": "{{api_key}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"to\": \"6281234567890\",\n  \"message\": \"Hello, this is a test message\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/send-message",
+          "host": ["{{base_url}}"],
+          "path": ["api", "send-message"]
+        },
+        "description": "Mengirim pesan WhatsApp. Nomor bisa dengan format 0, 62, atau sudah dengan @s.whatsapp.net"
+      },
+      "response": []
+    }
+  ]
+}
+

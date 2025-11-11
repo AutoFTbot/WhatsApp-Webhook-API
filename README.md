@@ -28,8 +28,10 @@ npm install
 
 3. Buat file `.env` di root directory:
 ```env
-PORT=3000
-API_KEY=your-api-key-here
+API_KEY=#
+PORT=#
+NODE_ENV=#
+WHATSAPP_SESSION_PATH=./AutoFtBot69
 ```
 
 ## Menjalankan
@@ -221,5 +223,5 @@ WEBHOOK WA/
 ## License
 
 MIT
-
 # WhatsApp-Webhook-API
+
